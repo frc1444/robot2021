@@ -1,33 +1,32 @@
 package com.first1444.frc.robot2020;
 
-import edu.wpi.first.hal.sim.DriverStationSim;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.simulation.DriverStationSim;
 
 public class LiveSimulation {
 	public static void main(String[] args){
 		// I can't get this to work so don't try it
 		RobotBase.startRobot(Main::createRobot);
-		final var sim = new DriverStationSim();
 		System.out.println("Simulation starting");
 		
-		sim.setDsAttached(false);
-		sim.setEnabled(false);
+		DriverStationSim.setDsAttached(false);
+        DriverStationSim.setEnabled(false);
 		
 		System.out.println("Autonomous starting");
-		sim.setAutonomous(true);
-		sim.setEnabled(true);
+        DriverStationSim.setAutonomous(true);
+        DriverStationSim.setEnabled(true);
 		
 		Timer.delay(15);
 		System.out.println("Teleop starting");
-		sim.setEnabled(false);
+        DriverStationSim.setEnabled(false);
 		
 		Timer.delay(.5);
-		sim.setAutonomous(false);
-		sim.setEnabled(true);
+        DriverStationSim.setAutonomous(false);
+        DriverStationSim.setEnabled(true);
 		
 		Timer.delay(135);
-		sim.setEnabled(false);
+        DriverStationSim.setEnabled(false);
 		System.out.println("Match ended");
 		
 	}

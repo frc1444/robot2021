@@ -1,5 +1,5 @@
-# robot2020
-Our robot code for Infinite Recharge.
+# robot2021
+Our robot code for Infinite Recharge. Most of this code was written in 2020, it will be tweaked in 2021.
 
 This project uses robo-sim and is not a standard WPILib project.
 
