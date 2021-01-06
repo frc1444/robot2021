@@ -1,11 +1,11 @@
 buildscript {
     ext {
         kotlinVersion = '1.4.21' // https://kotlinlang.org/releases.html
-        wpiLibVersion = "2021.1.1-beta-4" // https://github.com/wpilibsuite/allwpilib/releases // TODO change
+        wpiLibVersion = "2021.1.2" // https://github.com/wpilibsuite/allwpilib/releases
         junit5Version = "5.7.0" // https://junit.org/junit5/
-        gdxVersion = '1.9.12' // https://github.com/libgdx/libgdx/releases
+        gdxVersion = '1.9.13' // https://github.com/libgdx/libgdx/releases
 //        roboSimVersion = "2de59f2ec1"
-        roboSimVersion = "3e3c3d868ee1a9315bcad8a8a299b3c20d17f257".substring(0, 10)
+        roboSimVersion = "355268e2de96fd24c2c794df1d0138b53b9d1058".substring(0, 10)
         abstractControllerLibVersion = "v2.5.0"
         abstractDashboardVersion = "e635c7080d"
         jacksonVersion = "2.12.0" // https://github.com/FasterXML/jackson-databind/releases
@@ -27,7 +27,6 @@ subprojects {
     apply plugin: "kotlin"
     ext { // some of the variables in here may only be specific to a single module
         appName = "robot2021-sim-app"
-        gdxVersion = "1.9.10"
     }
     repositories {
         mavenLocal()

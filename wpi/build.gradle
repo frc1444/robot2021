@@ -44,9 +44,20 @@ dependencies {
     simulation wpi.deps.sim.gui(wpi.platforms.desktop, false)
     simulation wpi.deps.sim.driverstation(wpi.platforms.desktop, false)
 
+    // Websocket extensions require additional configuration. // We don't need these, but just in case, we'll keep this comment
+    // simulation wpi.deps.sim.ws_server(wpi.platforms.desktop, false)
+    // simulation wpi.deps.sim.ws_client(wpi.platforms.desktop, false)
+
     implementation "com.github.frc1444.robo-sim:wpi:$roboSimVersion"
     implementation "com.github.frc1444.robo-sim:wpi-controller:$roboSimVersion"
     implementation "com.github.frc1444.abstract-dashboard:wpi:$abstractDashboardVersion"
+}
+
+
+// Simulation configuration (e.g. environment variables).
+sim {
+    // Sets the websocket client remote host.
+    // envVar "HALSIMWS_HOST", "10.0.0.2"
 }
 
 jar {
@@ -55,5 +66,3 @@ jar {
     //noinspection UnnecessaryQualifiedReference
     manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
 }
-
-//jar.dependsOn ':core:jar'
