@@ -148,7 +148,7 @@ public class TalonSwerveModule implements SwerveModule {
         { // steer code
 
             final double wrap = getCountsPerRevolution(); // in encoder counts
-            final int current = steer.getSelectedSensorPosition(RobotConstants.PID_INDEX);
+            final double current = steer.getSelectedSensorPosition(RobotConstants.PID_INDEX);
             final double desired = Math.round(targetPositionDegrees * wrap / 360.0); // in encoder counts
 
             if(quickReverseAllowed){
@@ -231,7 +231,7 @@ public class TalonSwerveModule implements SwerveModule {
 
     @Override
     public double getCurrentAngleDegrees() {
-        final int encoderPosition = steer.getSelectedSensorPosition(RobotConstants.PID_INDEX);
+        final double encoderPosition = steer.getSelectedSensorPosition(RobotConstants.PID_INDEX);
         final double totalCounts = getCountsPerRevolution();
         return MathUtil.mod(encoderPosition * 360.0 / totalCounts, 360.0);
     }

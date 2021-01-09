@@ -17,6 +17,7 @@ import com.first1444.frc.util.valuemap.MutableValueMap;
 import com.first1444.frc.util.valuemap.sendable.MutableValueMapSendable;
 import com.first1444.sim.api.Clock;
 import com.first1444.sim.api.Rotation2;
+import edu.wpi.first.wpilibj.DutyCycleEncoder;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.signum;
