@@ -19,11 +19,11 @@ private fun createSelectionCreator(uiSkin: Skin, changer: ScreenChanger): Screen
     val bundle = DefaultDashboardBundle(rootDashboard)
 
     val creator = MyRobotCreator(bundle)
-    val exitButtonUpdateableCreator = ExitButtonCreator(Runnable {
+    val exitButtonUpdateableCreator = ExitButtonCreator {
         changer.change(createSelectionCreator(uiSkin, changer).create(changer))
         NetworkTableInstance.getDefault().close()
-    })
-    val fieldCreator = Field2020Creator
+    }
+    val fieldCreator = Field2020Creator(do2021=true)
     return SelectionScreenCreator(
             uiSkin,
             FieldScreenCreator(uiSkin, UpdateableCreatorMultiplexer(listOf(

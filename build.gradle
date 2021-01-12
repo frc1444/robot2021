@@ -4,8 +4,9 @@ buildscript {
         wpiLibVersion = "2021.1.2" // https://github.com/wpilibsuite/allwpilib/releases
         junit5Version = "5.7.0" // https://junit.org/junit5/
         gdxVersion = '1.9.13' // https://github.com/libgdx/libgdx/releases
+//        gdxControllersVersion = '2.0.0' // https://github.com/libgdx/gdx-controllers/releases // eventually we'll update once abstract-controller-lib does
 //        roboSimVersion = "2de59f2ec1"
-        roboSimVersion = "355268e2de96fd24c2c794df1d0138b53b9d1058".substring(0, 10)
+        roboSimVersion = "3017b00ebe23065f72ca7382ada9993685c2c09b".substring(0, 10)
         abstractControllerLibVersion = "v2.5.0"
         abstractDashboardVersion = "e635c7080d"
         jacksonVersion = "2.12.0" // https://github.com/FasterXML/jackson-databind/releases
