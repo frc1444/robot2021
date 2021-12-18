@@ -14,9 +14,9 @@ class BestNameControllerProvider(
     override fun getController(): Controller? {
         val map = mutableMapOf<String, Controller>()
         for(controller in Controllers.getControllers()){
-            val controllerName = controller.name.toLowerCase()
+            val controllerName = controller.name.lowercase()
             for(name in bestNames){
-                if(name.toLowerCase() in controllerName){
+                if(name.lowercase() in controllerName){
                     map[name] = controller
                 }
             }
@@ -29,9 +29,9 @@ class BestNameControllerProvider(
 
     override fun isConnected(): Boolean {
         for(controller in Controllers.getControllers()){
-            val controllerName = controller.name.toLowerCase()
+            val controllerName = controller.name.lowercase()
             for(name in bestNames){
-                if(name.toLowerCase() in controllerName){
+                if(name.lowercase() in controllerName){
                     return true
                 }
             }

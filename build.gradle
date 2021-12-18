@@ -1,16 +1,17 @@
 buildscript {
     ext {
-        kotlinVersion = '1.4.21' // https://kotlinlang.org/releases.html
-        wpiLibVersion = "2021.1.2" // https://github.com/wpilibsuite/allwpilib/releases
-        junit5Version = "5.7.0" // https://junit.org/junit5/
+        kotlinVersion = '1.5.10' // https://kotlinlang.org/releases.html
+        wpiLibVersion = "2022.1.1-beta-3" // https://github.com/wpilibsuite/allwpilib/releases
+        junit5Version = "5.8.2" // https://junit.org/junit5/
+        // TODO upgrade to 1.10.0. This requires us to also update abstract controller lib to use gdx-controllers 2.x
         gdxVersion = '1.9.13' // https://github.com/libgdx/libgdx/releases
 //        gdxControllersVersion = '2.0.0' // https://github.com/libgdx/gdx-controllers/releases // eventually we'll update once abstract-controller-lib does
 //        roboSimVersion = "2de59f2ec1"
-        roboSimVersion = "3017b00ebe23065f72ca7382ada9993685c2c09b".substring(0, 10)
+        roboSimVersion = "e4be8ea42de759d26f5752e133a9c0fa31989940".substring(0, 10)
 //        abstractControllerLibVersion = "v2.5.0"
         abstractControllerLibVersion = "e4d62bfdeb"
         abstractDashboardVersion = "e635c7080d"
-        jacksonVersion = "2.12.1" // https://github.com/FasterXML/jackson-databind/releases
+        jacksonVersion = "2.13.0" // https://github.com/FasterXML/jackson-databind/releases
     }
     repositories {
         mavenLocal()
@@ -33,7 +34,6 @@ subprojects {
     repositories {
         mavenLocal()
         mavenCentral()
-        jcenter()
         google()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }

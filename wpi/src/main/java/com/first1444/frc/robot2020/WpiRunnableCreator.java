@@ -64,7 +64,7 @@ public class WpiRunnableCreator implements RunnableCreator {
         ActiveDashboardBundle bundle = new DefaultDashboardBundle(rootDashboard);
         DashboardMap dashboardMap = new DefaultDashboardMap(bundle);
         ReportMap reportMap = new DashboardReportMap(dashboardMap.getDebugTab().getRawDashboard().getSubDashboard("Report Map"));
-        FrcDriverStation driverStation = new WpiFrcDriverStation(DriverStation.getInstance());
+        FrcDriverStation driverStation = WpiFrcDriverStation.INSTANCE;
 
         final MutableValueMapSendable<PidKey> drivePidSendable = new MutableValueMapSendable<>(PidKey.class);
         final MutableValueMapSendable<PidKey> steerPidSendable = new MutableValueMapSendable<>(PidKey.class);
