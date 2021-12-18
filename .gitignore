@@ -747,3 +747,4 @@ MigrationBackup/
 
 .idea/*
 !.idea/dictionaries
+!.idea/inspectionProfiles/

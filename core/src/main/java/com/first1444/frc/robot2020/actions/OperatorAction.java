@@ -11,8 +11,6 @@ import com.first1444.sim.api.frc.implementations.infiniterecharge.Field2020;
 import me.retrodaredevil.action.SimpleAction;
 import me.retrodaredevil.controller.input.InputPart;
 
-import static java.lang.Math.abs;
-
 /**
  * The operator action that takes input from a {@link RobotInput} and sets the desired states of the different subsystems
  */
