@@ -52,7 +52,7 @@ private fun createSelectionCreator(uiSkin: Skin, changer: ScreenChanger): Screen
 
 fun createScreen(): ApplicationListener {
     return SimpleGame { changer ->
-        Gdx.graphics.setTitle("Infinite Recharge - RoboSim - 2020")
+        Gdx.graphics.setTitle("Infinite Recharge - RoboSim - 2021")
         val uiSkin = Skin(Gdx.files.classpath("skins/sgx/sgx-ui.json"))
         createSelectionCreator(uiSkin, changer).create(changer)
     }

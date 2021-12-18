@@ -7,9 +7,10 @@ buildscript {
 //        gdxControllersVersion = '2.0.0' // https://github.com/libgdx/gdx-controllers/releases // eventually we'll update once abstract-controller-lib does
 //        roboSimVersion = "2de59f2ec1"
         roboSimVersion = "3017b00ebe23065f72ca7382ada9993685c2c09b".substring(0, 10)
-        abstractControllerLibVersion = "v2.5.0"
+//        abstractControllerLibVersion = "v2.5.0"
+        abstractControllerLibVersion = "e4d62bfdeb"
         abstractDashboardVersion = "e635c7080d"
-        jacksonVersion = "2.12.0" // https://github.com/FasterXML/jackson-databind/releases
+        jacksonVersion = "2.12.1" // https://github.com/FasterXML/jackson-databind/releases
     }
     repositories {
         mavenLocal()

@@ -5,6 +5,7 @@ import com.first1444.sim.api.surroundings.Surrounding;
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
+import org.zeromq.ZMQException;
 
 import java.io.IOException;
 import java.util.List;
@@ -41,25 +42,43 @@ public class VisionPacketListener implements VisionProvider, AutoCloseable {
     }
 
     private void run() {
-        try(ZContext context = new ZContext()) {
-            ZMQ.Socket socket = context.createSocket(SocketType.SUB);
-            socket.connect(address);
-            socket.setLinger(0);
-            socket.subscribe("".getBytes());
+        ZContext context = new ZContext();
+        try {
+            try (ZMQ.Socket socket = context.createSocket(SocketType.SUB)) {
+                socket.connect(address);
+                socket.setLinger(0);
+                socket.subscribe("".getBytes());
 
-            while (!Thread.currentThread().isInterrupted()) {
-                final String reply = socket.recvStr(0);
-                if(reply != null) {
-                    double timestamp = clock.getTimeSeconds();
+                while (!Thread.currentThread().isInterrupted()) {
+                    final String reply;
                     try {
-                        List<Surrounding> surroundings = parser.parseSurroundings(timestamp, reply);
-                        VisionInstant instant = new VisionInstant(surroundings, timestamp);
-                        synchronized (this){
-                            this.instant = instant;
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        reply = socket.recvStr(0);
+                    } catch (ZMQException ex) {
+                        System.err.println("Got ZMQException. Hopefully the program is ending now.");
+                        break;
                     }
+                    if (reply != null) {
+                        double timestamp = clock.getTimeSeconds();
+                        try {
+                            List<Surrounding> surroundings = parser.parseSurroundings(timestamp, reply);
+                            VisionInstant instant = new VisionInstant(surroundings, timestamp);
+                            synchronized (this) {
+                                this.instant = instant;
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        } finally {
+            try {
+                context.close();
+            } catch (IllegalStateException ex) {
+                if (ex.getMessage().equals("errno 4")) {
+                    System.err.println("Expected error when closing context");
+                } else {
+                    ex.printStackTrace();
                 }
             }
         }

@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.first1444.sim.api.Vector2;
 
+/**
+ * Goes from supplementary -> robot. Updates perspective point used for driving
+ */
 @JsonTypeName("PERSPECTIVE_LOCATION")
 public class PerspectiveLocationPacket implements Packet {
     private final Vector2 location;
