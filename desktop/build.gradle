@@ -11,11 +11,11 @@ dependencies {
     implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     implementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
 
-//    implementation "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllerVersion"
+    implementation "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllerVersion"
 
-    implementation "com.badlogicgames.gdx:gdx-controllers-desktop:1.9.13"
-    implementation "com.badlogicgames.gdx:gdx-controllers-platform:1.9.13:natives-desktop"
-    implementation "com.badlogicgames.gdx:gdx-controllers-lwjgl3:1.9.13"
+//    implementation "com.badlogicgames.gdx:gdx-controllers-desktop:1.9.13"
+//    implementation "com.badlogicgames.gdx:gdx-controllers-platform:1.9.13:natives-desktop"
+//    implementation "com.badlogicgames.gdx:gdx-controllers-lwjgl3:1.9.13"
 }
 
 task run(dependsOn: classes, type: JavaExec) {

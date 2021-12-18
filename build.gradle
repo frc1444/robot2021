@@ -9,7 +9,7 @@ buildscript {
 //        roboSimVersion = "2de59f2ec1"
         roboSimVersion = "e4be8ea42de759d26f5752e133a9c0fa31989940".substring(0, 10) // https://jitpack.io/#frc1444/robo-sim
 //        abstractControllerLibVersion = "v2.5.0"
-        abstractControllerLibVersion = "d72cc3b5fd"
+        abstractControllerLibVersion = "77f7167aeb"
         abstractDashboardVersion = "e635c7080d"
         jacksonVersion = "2.13.0" // https://github.com/FasterXML/jackson-databind/releases
     }

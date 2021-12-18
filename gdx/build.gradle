@@ -9,8 +9,8 @@ dependencies {
 //    println("platform=${wpi.platforms.desktop}")
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-controllers:1.9.13" // the old way
-//    api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllerVersion" // the new way
+//    api "com.badlogicgames.gdx:gdx-controllers:1.9.13" // the old way
+    api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllerVersion" // the new way
 
     api "edu.wpi.first.ntcore:ntcore-java:$wpiLibVersion"
     api "edu.wpi.first.ntcore:ntcore-jni:$wpiLibVersion"
@@ -22,7 +22,8 @@ dependencies {
 
     api "com.github.frc1444.abstract-dashboard:wpi:$abstractDashboardVersion"
     api "com.github.frc1444.robo-sim:gdx:$roboSimVersion"
-    api "com.github.retrodaredevil.abstract-controller-lib:gdx:$abstractControllerLibVersion"
+//    api "com.github.retrodaredevil.abstract-controller-lib:gdx:$abstractControllerLibVersion" // the old way
+    api "com.github.retrodaredevil.abstract-controller-lib:gdx2:$abstractControllerLibVersion" // the new way
 
 //    api "edu.wpi.first.wpilibj:wpilibj-java:$wpiLibVersion"
 //    api "edu.wpi.first.cscore:cscore-java:$wpiLibVersion"

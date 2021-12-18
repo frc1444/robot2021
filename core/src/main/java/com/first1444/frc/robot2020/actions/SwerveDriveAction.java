@@ -112,6 +112,13 @@ public class SwerveDriveAction extends SimpleAction {
             visionYawController.reset();
         }
         double turnAmount = visionAlign * getTargetTurnAmount() + (1 - visionAlign) * getDriverTurnAmount();
+        if (Math.abs(turnAmount) > 1.1) {
+            throw new AssertionError("Unexpectedly high turnAmount! turnAmount: " + turnAmount);
+        } else if (turnAmount > 1) {
+            turnAmount = 1;
+        } else if (turnAmount < -1) {
+            turnAmount = -1;
+        }
 
         final InputPart speedInputPart = input.getMovementSpeed();
         final double speed;

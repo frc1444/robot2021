@@ -1,6 +1,8 @@
 package com.first1444.frc.robot2020.gdx
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.controllers.Controller
+import com.badlogic.gdx.controllers.ControllerMapping
 import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.math.Vector3
 import com.badlogic.gdx.physics.box2d.*
@@ -57,6 +59,7 @@ import com.first1444.sim.gdx.velocity.AccelerateSetPointHandler
 import edu.wpi.first.networktables.NetworkTableInstance
 import me.retrodaredevil.controller.gdx.GdxControllerPartCreator
 import me.retrodaredevil.controller.gdx.IndexedControllerProvider
+import me.retrodaredevil.controller.gdx.mappings.ControllerMappingStandardControllerInputCreator
 import me.retrodaredevil.controller.implementations.BaseStandardControllerInput
 import me.retrodaredevil.controller.implementations.InputUtil
 import me.retrodaredevil.controller.implementations.mappings.DefaultStandardControllerInputCreator
@@ -76,6 +79,9 @@ private val WHEEL_BASE = SWERVE.wheelBase // length
 private val TRACK_WIDTH = SWERVE.trackWidth // width
 private val INTAKE_EXTEND = inchesToMeters(6.0f)
 private val INTAKE_WIDTH = inchesToMeters(12.0f)
+
+/** Set to true if using abstract-controller-lib:gdx2*/
+private const val GDX_CONTROLLERS_2 = true
 
 private fun createEntity(data: RobotCreator.Data, updateableData: UpdateableCreator.Data): BodyEntity {
     return ActorBodyEntity(updateableData.contentStage, updateableData.worldManager.world, BodyDef().apply {
@@ -244,11 +250,17 @@ class MyRobotCreator(
         val playstationProvider = BestNameControllerProvider(listOf("sony", "ps4", "playstation", "wireless controller"))
         val defaultProvider = IndexedControllerProvider(0)
         val creator = GdxControllerPartCreator(
-                if(playstationProvider.isConnected || !defaultProvider.isConnected) playstationProvider else defaultProvider,
-                true
+                if(playstationProvider.isConnected || !defaultProvider.isConnected) playstationProvider else defaultProvider
         )
+        val theController: Controller = defaultProvider.controller
+        // for some reason it doesn't compile if we try to do theController.mapping, so yay reflection
+        val mapping: ControllerMapping = theController.javaClass.getMethod("getMapping").invoke(theController) as ControllerMapping
+
         val controller = if(playstationProvider.isConnected || !defaultProvider.isConnected){
-            if(SystemType.isUnixBased()) {
+            if (GDX_CONTROLLERS_2) {
+                println("gdx2 ps4")
+                InputUtil.createController(creator, ControllerMappingStandardControllerInputCreator(mapping))
+            } else if(SystemType.isUnixBased()) {
                 println("*nix ps4")
                 InputUtil.createController(creator, LinuxPS4StandardControllerInputCreator())
             } else {
