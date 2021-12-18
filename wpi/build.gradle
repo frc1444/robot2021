@@ -75,6 +75,9 @@ jar {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     //noinspection UnnecessaryQualifiedReference
     manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
+
+    // This line is required after upgrading to Gradle 7. Something about META-INF/wpi.kotlin_module
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 deployArtifact.jarTask = jar

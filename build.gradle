@@ -7,7 +7,7 @@ buildscript {
         gdxVersion = '1.9.13' // https://github.com/libgdx/libgdx/releases
 //        gdxControllersVersion = '2.0.0' // https://github.com/libgdx/gdx-controllers/releases // eventually we'll update once abstract-controller-lib does
 //        roboSimVersion = "2de59f2ec1"
-        roboSimVersion = "e4be8ea42de759d26f5752e133a9c0fa31989940".substring(0, 10)
+        roboSimVersion = "e4be8ea42de759d26f5752e133a9c0fa31989940".substring(0, 10) // https://jitpack.io/#frc1444/robo-sim
 //        abstractControllerLibVersion = "v2.5.0"
         abstractControllerLibVersion = "e4d62bfdeb"
         abstractDashboardVersion = "e635c7080d"
@@ -18,7 +18,6 @@ buildscript {
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        jcenter()
         google()
     }
     dependencies {
@@ -80,6 +79,6 @@ project(":desktop") {
 }
 
 wrapper {
-    gradleVersion = '6.7.1' // https://gradle.org/releases/
+    gradleVersion = '7.3.2' // https://gradle.org/releases/
     distributionType = Wrapper.DistributionType.ALL
 }
