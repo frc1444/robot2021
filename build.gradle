@@ -1,13 +1,13 @@
 buildscript {
     ext {
-        kotlinVersion = '1.5.10' // https://kotlinlang.org/releases.html
-        wpiLibVersion = "2022.1.1-beta-3" // https://github.com/wpilibsuite/allwpilib/releases
+        kotlinVersion = '1.6.10' // https://kotlinlang.org/releases.html
+        wpiLibVersion = "2022.1.1" // https://github.com/wpilibsuite/allwpilib/releases
         junit5Version = "5.8.2" // https://junit.org/junit5/
         gdxVersion = '1.10.0' // https://github.com/libgdx/libgdx/releases
         // https://github.com/retrodaredevil/abstract-controller-lib/blob/2.0.0-branch/gdx2/build.gradle
         gdxControllerVersion = '2.2.1' // https://github.com/libgdx/gdx-controllers/releases // eventually we'll update once abstract-controller-lib does
 //        roboSimVersion = "2de59f2ec1"
-        roboSimVersion = "e4be8ea42de759d26f5752e133a9c0fa31989940".substring(0, 10) // https://jitpack.io/#frc1444/robo-sim
+        roboSimVersion = "b87d713749924798f4a6637cc983c0fbf466641d".substring(0, 10) // https://jitpack.io/#frc1444/robo-sim
 //        abstractControllerLibVersion = "v2.5.0"
         abstractControllerLibVersion = "77f7167aeb"
         abstractDashboardVersion = "e635c7080d"
