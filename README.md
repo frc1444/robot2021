@@ -21,7 +21,7 @@ To alter them on Windows, replace `./gradlew` with `gradlew.bat`
 ./gradlew build
 
 # Downloading everything for WPI (Do this if you aren't going to have internet! (Like before competition!))
-./gradlew wpi:downloadAll
+./gradlew wpi:downloadDepsPreemptively
 
 # Deploying:
 ./gradlew wpi:deploy

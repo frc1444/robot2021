@@ -36,7 +36,7 @@ public class MotorClimber extends BaseClimber {
         intakeLimitSwitch = new DigitalInput(RobotConstants.DIO.INTAKE_DOWN_LIMIT_SWITCH_NORMALLY_OPEN);
         motor.restoreFactoryDefaults();
         motor.setIdleMode(CANSparkMax.IdleMode.kBrake);
-        motor.setMotorType(CANSparkMaxLowLevel.MotorType.kBrushless);
+//        motor.setMotorType(CANSparkMaxLowLevel.MotorType.kBrushless);
         motor.setSmartCurrentLimit(200); // default is 80
 
         encoder = motor.getEncoder();

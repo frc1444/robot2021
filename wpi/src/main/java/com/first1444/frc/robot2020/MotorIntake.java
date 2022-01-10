@@ -65,11 +65,11 @@ public class MotorIntake extends BaseIntake {
         intakeMotor.setNeutralMode(NeutralMode.Brake);
 
         indexerMotor.restoreFactoryDefaults();
-        indexerMotor.setMotorType(INDEXER_TYPE);
+//        indexerMotor.setMotorType(INDEXER_TYPE);
         indexerMotor.setOpenLoopRampRate(.2);
 
         feederMotor.restoreFactoryDefaults();
-        feederMotor.setMotorType(FEEDER_TYPE);
+//        feederMotor.setMotorType(FEEDER_TYPE);
 //        feederMotor.setOpenLoopRampRate(.1);
         feederMotor.setIdleMode(CANSparkMax.IdleMode.kBrake); // when we stop this motor, we want it to stop.
         feederMotor.setInverted(true);
