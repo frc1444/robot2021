@@ -1,6 +1,9 @@
 *.ini
 
 *.so
+wpi/*.trc
+wpi/*.dmp
+wpi/javacore*.txt
 
 
 # Created by https://www.gitignore.io/api/java,linux,macos,gradle,kotlin,windows,eclipse,android,intellij,netbeans,visualstudio,visualstudiocode
